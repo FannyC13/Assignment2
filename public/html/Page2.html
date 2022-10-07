@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Page2.css" media="screen" charset= "UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>POKEDEX</h1>
+   
+    <header>
+
+    </header>
+    <section>
+
+    </section>
+    <script>
+        import myJson from '././Pokedex.json' assert {type: 'json'}
+        var objet = JSON.parse(myJson);
+
+        async function populate() {
+        var request = new XMLHttpRequest();
+        request.open('GET', objet);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function() {
+        var pokemon = request.response;}
+        /*const requestURL = "C:\Users\Moi\Documents\EFREI Course\L3\S6-International Semester\Advanced Web Prog\Assignment2\Pokedex.json";
+        const request = new Request(objet);
+
+        const response = await fetch(request);
+        const Pokemon = await response.json();*/
+        populateHeader(Pokemon);
+        showPokedex(Pokemon);
+
+        }
+        
+      /* 
+        
+        
+        
+
+      
+    
+        
+        */
+        function populateHeader(jsonObj) {
+
+        const header = document.querySelector('header');
+        var myH1 = document.createElement('h1');
+        myH1.textContent = jsonObj['Name'];
+        header.appendChild(myH1);
+
+        var myPara = document.createElement('p');
+        myPara.textContent = 'Place: ' + jsonObj['Place'] + jsonObj['formed'];
+        header.appendChild(myPara);
+        }
+        
+
+        
+
+        function showPokedex(jsonObj) {
+            var section = document.querySelector('section');
+            var pokemon = jsonObj['pokedex'];
+
+            for (var i = 0; i < pokemon.length; i++) {
+                var myPokedex = document.createElement('article');
+                var myH2 = document.createElement('h2');
+                var myPara1 = document.createElement('p');
+                var myPara2 = document.createElement('p');
+                var myPara3 = document.createElement('p');
+                var myList = document.createElement('ul');
+
+                myH2.textContent = pokemon[i].name;
+                myPara1.textContent = ': ' + pokemon[i].no;
+                myPara2.textContent = ': ' + pokemon[i].abilities;
+                myPara3.textContent = ':';
+
+                var type = pokemon[i].type;
+                for (var j = 0; j < type.length; j++) {
+                var listItem = document.createElement('li');
+                listItem.textContent = type[j];
+                myList.appendChild(listItem);
+                }
+
+                myPokedex.appendChild(myH2);
+                myPokedex.appendChild(myPara1);
+                myPokedex.appendChild(myPara2);
+                myPokedex.appendChild(myPara3);
+                myPokedex.appendChild(myList);
+
+                section.appendChild(myPokedex);
+        }
+    }  
+
+    </script>
+    
+</body>
+</html>

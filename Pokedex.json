@@ -1,0 +1,32 @@
+{
+  "Name" : "Pokedex",
+  "Place" : "Pallet town",
+  "active" : true,
+  "pokedex" : [
+    {
+      "name" : "Bulbasaur",
+      "no" : 1,
+      "abilities" : "Overgrow Chlorophyl",
+      "type" : [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "name" : "Charmander",
+      "no" : 4,
+      "abilities" : "Blaze Solar Power",
+      "type" : [
+        "Fire"
+      ]
+    },
+    {
+      "name" : "Pikachu",
+      "no" : 1,
+      "abilities" : "Static Lightning Rod",
+      "type" : [
+        "Elec"
+      ]
+    }
+  ]
+}
