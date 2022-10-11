@@ -1,8 +1,8 @@
 {
-  "Name" : "Pokedex",
+  "Title" : "Pokedex",
   "Place" : "Pallet town",
   "active" : true,
-  "pokedex" : [
+  "list" : [
     {
       "name" : "Bulbasaur",
       "no" : 1,
@@ -27,6 +27,23 @@
       "type" : [
         "Elec"
       ]
+    },
+    {
+      "name": "Psyduck",
+      "no": 54,
+      "abilities": "Damp",
+      "type": [ "Wate" ]
+    },
+    {
+      "name": "Jigglypuff",
+      "no": 39,
+      "abilities": "Cute Charm",
+      "type": [ "Normal", "Fairy" ]
+    },
+    {"name": "Squirtle",
+      "no": 7,
+      "abilities": "Torrent",
+      "type": [ "Water" ]
     }
   ]
 }

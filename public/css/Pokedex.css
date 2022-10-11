@@ -1,0 +1,66 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+input, textarea, button {
+    background-color: #ebe6e6;
+}
+
+h1{
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-size: 2.5 em;
+    color: #5f5454;
+    text-align: center;
+
+
+}
+
+h2,p{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.5 em;
+    color: #090807;
+    text-align: center;
+}
+
+h3,a{
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.5 em;
+    color: #090807;
+    text-align: center;
+    margin-bottom: 3%;
+    text-decoration: underline;
+}
+
+.banner{
+    text-align: center;
+    width: 100%;
+    height: 30vh;
+    background-image: url("pokemon.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering: optimizeQuality;
+    background-position: 50% 50%;
+
+}
+
+img{
+    text-align: center;
+    width: 10%;
+    height: -8%;
+}
+
+.pokemon{
+    text-align: center;
+    margin-top: 3%;
+}
+
+.form{
+    text-align: center;
+    margin-bottom: 2%;
+}
+

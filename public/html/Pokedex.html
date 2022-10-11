@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Pokedex.css" media="screen" charset= "UTF-8">
+    <title>POKEDEX</title>
+</head>
+<body>
+    <header class="banner">
+        <h1>POKEDEX</h1>
+    </header>
+
+   <div class="contain">
+
+    <div class="form">
+
+    <h1>SHOW INFORMATIONS</h1><br>
+    <input type="text" id="Pokemon" name="name" placeholder="Pokemon Name" />
+    <button onclick="populate()">showPokemon</button>
+    </div>
+   
+    <section id="section">
+
+    </section>
+
+    <div class="pokemon">
+        <h3><a href=http://localhost:3000/pokemons>Click to show information of pokemon</a></h3><br>
+        <a href="http://localhost:3000/pokemons/634108311f088fd0a07349d1">
+        <img src="/css/charmander.png">
+        </a>
+        <a href="http://localhost:3000/pokemons/63410a871f088fd0a07349d9">
+            <img src="/css/jigglypuff.png">
+        </a>
+        <a href="http://localhost:3000/pokemons/6344cd5b522a40e11c325b9b">
+            <img src="/css/PsyDuck.png">
+        </a>
+        <a href="http://localhost:3000/pokemons/634109c51f088fd0a07349d7">
+            <img src="/css/squirtle.png">
+        </a><br><br>
+        <a href="About.html">ABOUT</a>
+    </div>
+    </div>
+    <script>
+        
+        async function populate() {
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'Pokedex.json'); //to get data
+        /*request.open('POST', requestURL); to send data*/
+      
+        request.onload = function() { //once data loaded
+        var PokemonText = JSON.parse(request.response); // get the string from the response
+        //populateHeader(PokemonText);
+        showPokedex(PokemonText);
+        }
+         
+        request.send();
+        }
+
+        function populateHeader(jsonObj) {
+
+        const header = document.querySelector('header');
+        var myH1 = document.createElement('h1');
+        myH1.textContent = jsonObj['Title'];
+        header.appendChild(myH1);
+
+        var myPara = document.createElement('p');
+        myPara.textContent = 'Place: ' + jsonObj['Place'];
+        header.appendChild(myPara);
+        }
+        
+
+        function showPokedex(jsonObj) {
+            var section = document.querySelector('section');
+            var pokemon = jsonObj.list;
+            var name = document.getElementById('Pokemon').value;
+            var exists = 0;
+            console.log(exists);
+            for (var poke of pokemon) {
+                var myPokedex = document.createElement('article');
+                var myH2 = document.createElement('h2');
+                var myPara1 = document.createElement('p');
+                var myPara2 = document.createElement('p');
+                var myPara3 = document.createElement('p');
+                var myList = document.createElement('p');
+
+                if(poke.name==name){
+                exists = 1;
+                myH2.textContent = poke.name;
+                myPara1.textContent = `No: ${poke.no}`;
+                myPara2.textContent = `Abilities: ${poke.abilities}`;
+                myPara3.textContent = `Type: `;
+                var type = poke.type;
+                for (var ty of type) {
+                var listItem = document.createElement('p');
+                listItem.textContent = ty;
+                myList.appendChild(listItem);
+                }
+                }
+                myPokedex.appendChild(myH2);
+                myPokedex.appendChild(myPara1);
+                myPokedex.appendChild(myPara2);
+                myPokedex.appendChild(myPara3);
+                myPokedex.appendChild(myList);
+                section.appendChild(myPokedex);
+            }
+            if(exists != 1){
+                alert("Pokemon is not in database");
+            }
+    }  
+      
+    </script>
+    
+</body>
+</html>
